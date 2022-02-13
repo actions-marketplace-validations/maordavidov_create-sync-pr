@@ -25,7 +25,8 @@ async function run() {
       //create new branch from master branch and PR between new branch and target branch
 
       const context = github.context;
-      const newBranch = `${branch}-sync-${context.sha.slice(-4)}`;
+      
+      const newBranch = `${sourceBranch}-to-${branch}-sync`;
       await createBranch(octokit, context, newBranch);
 
       const currentPull = currentPulls.find((pull) => {
@@ -38,8 +39,8 @@ async function run() {
           repo: repository.name,
           head: newBranch,
           base: branch,
-          title: `sync: ${branch}  with ${newBranch}`,
-          body: `sync-branches: syncing branch with ${newBranch}`,
+          title: `sync: ${sourceBranch}  with ${branch}`,
+          body: `sync-branches: syncing branch ${branch} with ${sourceBranch} using branch: ${newBranch}`,
           draft: false,
         });
 

@@ -1,6 +1,6 @@
-name: "Create Sync PR"
-author: Rahul Singh Mawari <rsmawari198@gmail.com>
-description: "Github Action to create PR for syncing multiple branches"
+name: "Dcode - Create Sync PR"
+author: Maor Davidov <maordavidov@gmail.com>
+description: "Github Action to create PR for syncing multiple branches (Dcode version)"
 branding:
   icon: git-pull-request
   color: green
