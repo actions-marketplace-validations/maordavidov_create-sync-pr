@@ -27,6 +27,7 @@ async function run() {
       const context = github.context;
       
       const newBranch = `${sourceBranch}-to-${branch}-sync`;
+
       await createBranch(octokit, context, newBranch);
 
       const currentPull = currentPulls.find((pull) => {
@@ -39,8 +40,8 @@ async function run() {
           repo: repository.name,
           head: newBranch,
           base: branch,
-          title: `sync: ${sourceBranch}  with ${branch}`,
-          body: `sync-branches: syncing branch ${branch} with ${sourceBranch} using branch: ${newBranch}`,
+          title: `sync: '${sourceBranch}'  with '${branch}'`,
+          body: `sync-branches: syncing branch '${branch}' with '${sourceBranch}' using branch: '${newBranch}'`,
           draft: false,
         });
 
